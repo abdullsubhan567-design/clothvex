@@ -28,25 +28,14 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-bg)' }}>
-      <form onSubmit={handleSubmit} className="card" style={{ width: 360, padding: 40 }}>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 30, fontWeight: 700, color: 'var(--color-maroon-dark)', marginBottom: 6, textAlign: 'center' }}>
-          ClothVex Admin
-        </div>
+    <div className="login-page">
+      <form onSubmit={handleSubmit} className="card login-card">
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, color: 'var(--color-maroon-dark)', marginBottom: 6, textAlign: 'center' }}>ClothVex Admin</div>
         <p style={{ textAlign: 'center', color: 'var(--color-muted)', fontSize: 13, marginBottom: 28 }}>Sign in to manage your store</p>
         <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter admin password"
-          required
-          style={{ marginBottom: 18 }}
-        />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter admin password" required style={{ marginBottom: 18 }} />
         {error && <div style={{ color: '#b53939', fontSize: 13, marginBottom: 14 }}>{error}</div>}
-        <button className="btn btn-primary" type="submit" style={{ width: '100%' }} disabled={loading}>
-          {loading ? 'Signing in…' : 'Sign In'}
-        </button>
+        <button className="btn btn-primary" type="submit" style={{ width: '100%' }} disabled={loading}>{loading ? 'Signing in…' : 'Sign In'}</button>
       </form>
     </div>
   );

@@ -11,7 +11,7 @@ export default async function EditProductPage({ params }) {
 
   return (
     <AdminShell>
-      <h1 style={{ fontSize: 30, marginBottom: 24 }}>Edit Product</h1>
+      <h1 style={{ fontSize: 32, marginBottom: 24 }}>Edit Product</h1>
       <ProductForm initial={product} productId={product.id} />
     </AdminShell>
   );

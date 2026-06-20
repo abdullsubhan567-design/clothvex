@@ -19,19 +19,19 @@ export default async function DashboardPage() {
 
   return (
     <AdminShell>
-      <h1 style={{ fontSize: 30, marginBottom: 6 }}>Dashboard</h1>
+      <h1 style={{ fontSize: 32, marginBottom: 6 }}>Dashboard</h1>
       <p style={{ color: 'var(--color-muted)', marginBottom: 30 }}>Welcome back. Here's a quick look at your store.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18, marginBottom: 36 }}>
+      <div className="admin-stats">
         {stats.map(s => (
           <div key={s.label} className="card" style={{ padding: 22 }}>
-            <div style={{ fontSize: 13, color: 'var(--color-muted)', fontWeight: 600, marginBottom: 8 }}>{s.label}</div>
-            <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--color-maroon)' }}>{s.value}</div>
+            <div style={{ fontSize: 13, color: 'var(--color-muted)', fontWeight: 700, marginBottom: 8 }}>{s.label}</div>
+            <div style={{ fontSize: 34, fontWeight: 800, color: 'var(--color-maroon)' }}>{s.value}</div>
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: 14 }}>
+      <div className="admin-actions">
         <Link href="/admin/products/new" className="btn btn-primary">+ Add New Product</Link>
         <Link href="/admin/settings" className="btn btn-outline">Change Logo / Store Info</Link>
       </div>

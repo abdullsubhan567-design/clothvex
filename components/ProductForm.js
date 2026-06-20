@@ -66,7 +66,7 @@ export default function ProductForm({ initial, productId }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card" style={{ padding: 32, maxWidth: 760 }}>
+    <form onSubmit={handleSubmit} className="card form-card">
       {error && <div style={{ color: '#b53939', marginBottom: 16, fontSize: 14 }}>{error}</div>}
 
       <div style={{ marginBottom: 18 }}>
@@ -79,7 +79,7 @@ export default function ProductForm({ initial, productId }) {
         <textarea value={description} onChange={e => setDescription(e.target.value)} rows={4} placeholder="Fabric details, fit, care instructions..." />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 18 }}>
+      <div className="form-grid-2">
         <div>
           <label>Category *</label>
           <select value={category} onChange={e => setCategory(e.target.value)}>
@@ -93,7 +93,7 @@ export default function ProductForm({ initial, productId }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 18 }}>
+      <div className="form-grid-2">
         <div>
           <label>Price (Rs.) *</label>
           <input type="number" min="0" value={price} onChange={e => setPrice(e.target.value)} required />
@@ -104,7 +104,7 @@ export default function ProductForm({ initial, productId }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 18 }}>
+      <div className="form-grid-2">
         <div>
           <label>Sizes (comma separated)</label>
           <input value={sizes} onChange={e => setSizes(e.target.value)} placeholder="S, M, L, XL" />
@@ -141,7 +141,7 @@ export default function ProductForm({ initial, productId }) {
         )}
       </div>
 
-      <div style={{ display: 'flex', gap: 12 }}>
+      <div className="form-actions">
         <button className="btn btn-primary" type="submit" disabled={saving}>
           {saving ? 'Saving…' : productId ? 'Update Product' : 'Add Product'}
         </button>

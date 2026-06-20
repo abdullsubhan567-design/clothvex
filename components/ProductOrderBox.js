@@ -20,16 +20,9 @@ export default function ProductOrderBox({ product, sizes, colors, whatsapp }) {
       {sizes.length > 0 && (
         <div style={{ marginBottom: 20 }}>
           <label>Size</label>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <div className="option-row">
             {sizes.map(s => (
-              <button
-                key={s}
-                onClick={() => setSize(s)}
-                style={{
-                  padding: '9px 16px', border: s === size ? '2px solid var(--color-maroon)' : '1px solid var(--color-line)',
-                  background: '#fff', fontWeight: 700, fontSize: 13
-                }}
-              >{s}</button>
+              <button key={s} onClick={() => setSize(s)} className="option-btn" style={{ border: s === size ? '2px solid var(--color-maroon)' : '1px solid var(--color-line)' }}>{s}</button>
             ))}
           </div>
         </div>
@@ -38,31 +31,19 @@ export default function ProductOrderBox({ product, sizes, colors, whatsapp }) {
       {colors.length > 0 && (
         <div style={{ marginBottom: 24 }}>
           <label>Color</label>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <div className="option-row">
             {colors.map(c => (
-              <button
-                key={c}
-                onClick={() => setColor(c)}
-                style={{
-                  padding: '9px 16px', border: c === color ? '2px solid var(--color-maroon)' : '1px solid var(--color-line)',
-                  background: '#fff', fontWeight: 700, fontSize: 13
-                }}
-              >{c}</button>
+              <button key={c} onClick={() => setColor(c)} className="option-btn" style={{ border: c === color ? '2px solid var(--color-maroon)' : '1px solid var(--color-line)' }}>{c}</button>
             ))}
           </div>
         </div>
       )}
 
-      <div style={{ marginBottom: 20, fontSize: 13, fontWeight: 700, color: outOfStock ? '#b53939' : '#2f8a4d' }}>
+      <div style={{ marginBottom: 20, fontSize: 13, fontWeight: 800, color: outOfStock ? '#b53939' : '#2f8a4d' }}>
         {outOfStock ? 'Currently Out of Stock' : `In Stock (${product.stock} available)`}
       </div>
 
-      <button
-        className="btn btn-whatsapp"
-        onClick={orderOnWhatsApp}
-        disabled={outOfStock}
-        style={{ width: '100%', opacity: outOfStock ? 0.5 : 1, cursor: outOfStock ? 'not-allowed' : 'pointer' }}
-      >
+      <button className="btn btn-whatsapp" onClick={orderOnWhatsApp} disabled={outOfStock} style={{ width: '100%', opacity: outOfStock ? 0.5 : 1, cursor: outOfStock ? 'not-allowed' : 'pointer' }}>
         Order on WhatsApp
       </button>
     </div>

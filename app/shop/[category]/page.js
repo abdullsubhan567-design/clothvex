@@ -16,20 +16,20 @@ export default async function ShopCategoryPage({ params }) {
 
   return (
     <PageShell settings={settings}>
-      <section style={{ background: '#F3E9DC', borderBottom: '1px solid var(--color-line)', padding: '50px 24px' }}>
+      <section className="page-hero">
         <div className="container">
           <div className="eyebrow" style={{ marginBottom: 8 }}>Collection</div>
-          <h1 style={{ fontSize: 42, textTransform: 'capitalize' }}>{category} Fabrics</h1>
+          <h1 className="page-title" style={{ textTransform: 'capitalize' }}>{category} Fabrics</h1>
         </div>
       </section>
 
-      <section className="container" style={{ padding: '50px 24px 90px' }}>
+      <section className="container section-pad">
         {products.length === 0 ? (
           <div className="card" style={{ padding: 50, textAlign: 'center', color: 'var(--color-muted)' }}>
             No {category} products available right now. Please check back soon.
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 22 }}>
+          <div className="product-grid">
             {products.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>
         )}

@@ -2,7 +2,6 @@ import { getSettings } from '../../../lib/getSettings';
 import AdminShell from '../../../components/AdminShell';
 import SettingsForm from '../../../components/SettingsForm';
 
-// Forces Next.js to treat this page as dynamic (disables static caching)
 export const dynamic = 'force-dynamic';
 
 export default async function AdminSettingsPage() {
@@ -10,8 +9,8 @@ export default async function AdminSettingsPage() {
 
   return (
     <AdminShell>
-      <h1 style={{ fontSize: 30, marginBottom: 6 }}>Store Settings</h1>
-      <p style={{ color: 'var(--color-muted)', marginBottom: 26 }}>
+      <h1 style={{ fontSize: 32, marginBottom: 6 }}>Store Settings</h1>
+      <p style={{ color: 'var(--color-muted)', marginBottom: 26, lineHeight: 1.7 }}>
         Update your logo, store name and contact details shown across the website.
       </p>
       <SettingsForm initial={settings} />

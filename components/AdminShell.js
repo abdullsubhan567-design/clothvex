@@ -19,38 +19,25 @@ export default function AdminShell({ children }) {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: '230px 1fr', background: 'var(--color-bg)' }}>
-      <aside style={{ background: 'var(--color-maroon-dark)', color: '#fff', padding: '28px 18px', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, marginBottom: 36, paddingLeft: 6 }}>
-          ClothVex
-        </div>
+    <div className="admin-layout">
+      <aside className="admin-sidebar">
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, paddingLeft: 6, whiteSpace: 'nowrap' }}>ClothVex</div>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: 4, flex: 1 }}>
           {links.map(l => {
             const active = pathname.startsWith(l.href);
             return (
-              <Link
-                key={l.href}
-                href={l.href}
-                style={{
-                  padding: '11px 14px',
-                  borderRadius: 4,
-                  fontSize: 14,
-                  fontWeight: 600,
-                  background: active ? 'rgba(255,255,255,0.14)' : 'transparent',
-                  color: active ? '#fff' : '#E2C9C0'
-                }}
-              >
+              <Link key={l.href} href={l.href} style={{ padding: '11px 14px', borderRadius: 999, fontSize: 14, fontWeight: 700, background: active ? 'rgba(255,255,255,0.14)' : 'transparent', color: active ? '#fff' : '#E2C9C0' }}>
                 {l.label}
               </Link>
             );
           })}
         </nav>
-        <Link href="/" style={{ fontSize: 13, color: '#E2C9C0', marginBottom: 14 }}>← View Live Site</Link>
-        <button onClick={logout} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', padding: '9px 14px', borderRadius: 4, fontSize: 13, fontWeight: 600 }}>
+        <Link href="/" style={{ fontSize: 13, color: '#E2C9C0', whiteSpace: 'nowrap' }}>← View Site</Link>
+        <button onClick={logout} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', padding: '9px 14px', borderRadius: 999, fontSize: 13, fontWeight: 700, whiteSpace: 'nowrap' }}>
           Log Out
         </button>
       </aside>
-      <div style={{ padding: '36px 40px' }}>{children}</div>
+      <main className="admin-main">{children}</main>
     </div>
   );
 }

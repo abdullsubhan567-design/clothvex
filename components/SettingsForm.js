@@ -48,12 +48,12 @@ export default function SettingsForm({ initial }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card" style={{ padding: 32, maxWidth: 600 }}>
+    <form onSubmit={handleSubmit} className="card form-card" style={{ maxWidth: 640 }}>
       {success && <div style={{ background: '#E5F6EB', color: '#2f8a4d', padding: '10px 14px', fontSize: 13, marginBottom: 18, fontWeight: 600 }}>Settings saved successfully.</div>}
 
       <div style={{ marginBottom: 22 }}>
         <label>Store Logo</label>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <div style={{ width: 64, height: 64, border: '1px solid var(--color-line)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', overflow: 'hidden' }}>
             {logo ? <img src={logo} alt="logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} /> : <span style={{ fontSize: 11, color: 'var(--color-muted)' }}>No Logo</span>}
           </div>
