@@ -166,4 +166,7 @@ You can update the number anytime from **Admin → Store Settings**.
 - If you ever need to reset the database structure, `npx prisma db push` is non-destructive to
   existing data for normal schema changes.
 # clothvex
+<<<<<<< HEAD
 # clothvex
+=======
+>>>>>>> e0ecbd322e1fc8c3997560705354bdd6b9059166
