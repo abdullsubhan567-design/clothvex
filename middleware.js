@@ -16,14 +16,26 @@ export async function middleware(request) {
 
   if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
     const token = request.cookies.get(SESSION_COOKIE)?.value;
+
+    console.log('[MIDDLEWARE DEBUG] pathname:', pathname);
+    console.log('[MIDDLEWARE DEBUG] cookie name expected:', SESSION_COOKIE);
+    console.log('[MIDDLEWARE DEBUG] token found:', token ? token.substring(0, 20) + '...' : 'NO TOKEN');
+    console.log('[MIDDLEWARE DEBUG] AUTH_SECRET set:', !!process.env.AUTH_SECRET);
+
     const payload = await verifySessionToken(token);
+
+    console.log('[MIDDLEWARE DEBUG] payload result:', payload);
+
     if (!payload) {
+      console.log('[MIDDLEWARE DEBUG] REDIRECTING TO LOGIN - verification failed');
       if (pathname.startsWith('/api/admin')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
       }
       const loginUrl = new URL('/admin/login', request.url);
       return NextResponse.redirect(loginUrl);
     }
+
+    console.log('[MIDDLEWARE DEBUG] AUTH SUCCESS - allowing through');
   }
 
   // Protect write operations on /api/products (POST/PUT/DELETE) - admin only
