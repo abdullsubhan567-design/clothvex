@@ -1,0 +1,38 @@
+// Prisma schema for ClothVex
+// Uses PostgreSQL (works great with free Neon/Vercel Postgres databases)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @default("")
+  category    String   // "unstitched" or "stitched"
+  price       Int      // price in PKR
+  oldPrice    Int?     // optional original price (for discount strike-through)
+  sizes       String   @default("")  // comma separated e.g. "S,M,L,XL" (stitched). Unstitched can leave blank
+  colors      String   @default("")  // comma separated e.g. "Red,Blue,Black"
+  stock       Int      @default(0)
+  images      String   @default("[]") // JSON array of image URLs / base64 strings
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Settings {
+  id            String   @id @default("main")
+  siteName      String   @default("ClothVex")
+  tagline       String   @default("Unstitched & Stitched Fabrics, Delivered.")
+  logo          String   @default("")
+  whatsapp      String   @default("923133925925")
+  email         String   @default("abdulsubhan567@gmail.com")
+  address       String   @default("Pakistan")
+  updatedAt     DateTime @updatedAt
+}
