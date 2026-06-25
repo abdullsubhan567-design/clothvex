@@ -22,8 +22,17 @@ export default async function ProductPage({ params }) {
         <div className="product-detail-grid">
           <ProductGallery images={images} name={product.name} />
           <div className="card" style={{ padding: 'clamp(24px, 4vw, 36px)' }}>
-            <div className="eyebrow" style={{ marginBottom: 10 }}>{product.category === 'unstitched' ? 'Unstitched' : 'Stitched'}</div>
-            <h1 style={{ fontSize: 'clamp(34px, 5vw, 48px)', marginBottom: 14, lineHeight: 1.05 }}>{product.name}</h1>
+<div className="eyebrow" style={{ marginBottom: 6 }}>
+  {product.category === 'unstitched-men'
+    ? 'Unstitched Men'
+    : product.category === 'unstitched-women'
+    ? 'Unstitched Women'
+    : product.category === 'stitched_men'
+    ? 'Stitched Men'
+    : product.category === 'stitched_women'
+    ? 'Stitched Women'
+    : 'Stitched'}
+</div>            <h1 style={{ fontSize: 'clamp(34px, 5vw, 48px)', marginBottom: 14, lineHeight: 1.05 }}>{product.name}</h1>
             <div className="price-row" style={{ marginBottom: 22 }}>
               <span style={{ fontWeight: 800, fontSize: 26, color: 'var(--color-maroon)' }}>Rs. {product.price.toLocaleString()}</span>
               {product.oldPrice && <span style={{ fontSize: 16, color: 'var(--color-muted)', textDecoration: 'line-through' }}>Rs. {product.oldPrice.toLocaleString()}</span>}
