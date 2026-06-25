@@ -83,8 +83,8 @@ export default function ProductForm({ initial, productId }) {
         <div>
           <label>Category *</label>
           <select value={category} onChange={e => setCategory(e.target.value)}>
-            <option value="unstitched">Unstitched</option>
-            <option value="stitched">Stitched</option>
+            <option value="unstitched-men">Unstitched Men</option>
+            <option value="unstitched-women">Unstitched Women</option>
           </select>
         </div>
         <div>

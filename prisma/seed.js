@@ -8,7 +8,7 @@ async function main() {
     create: {
       id: 'main',
       siteName: 'ClothVex',
-      tagline: 'Unstitched & Stitched Fabrics, Delivered.',
+      tagline: 'Unstitched men and women Fabrics, Delivered.',
       logo: '',
       whatsapp: '923133925925',
       email: 'abdulsubhan567@gmail.com',
