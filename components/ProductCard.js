@@ -19,8 +19,17 @@ export default function ProductCard({ product }) {
         {outOfStock && <span className="badge badge-stock">OUT OF STOCK</span>}
       </div>
       <div className="product-info">
-        <div className="eyebrow" style={{ marginBottom: 6 }}>{product.category === 'unstitched' ? 'Unstitched' : 'Stitched'}</div>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 21, fontWeight: 600, marginBottom: 8, color: 'var(--color-ink)', lineHeight: 1.15 }}>{product.name}</div>
+<div className="eyebrow" style={{ marginBottom: 6 }}>
+  {product.category === 'unstitched-men'
+    ? 'Unstitched Men'
+    : product.category === 'unstitched-women'
+    ? 'Unstitched Women'
+    : product.category === 'stitched_men'
+    ? 'Stitched Men'
+    : product.category === 'stitched_women'
+    ? 'Stitched Women'
+    : 'Stitched'}
+</div>        <div style={{ fontFamily: 'var(--font-display)', fontSize: 21, fontWeight: 600, marginBottom: 8, color: 'var(--color-ink)', lineHeight: 1.15 }}>{product.name}</div>
         <div className="price-row">
           <span style={{ fontWeight: 800, fontSize: 16, color: 'var(--color-maroon)' }}>Rs. {product.price.toLocaleString()}</span>
           {product.oldPrice && (
