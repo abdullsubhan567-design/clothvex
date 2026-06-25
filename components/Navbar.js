@@ -41,8 +41,8 @@ export default function Navbar({ settings }) {
           aria-label="Main navigation"
         >
           <Link href="/" className="nav-link" onClick={closeMenu}>Home</Link>
-          <Link href="/shop/unstitched" className="nav-link" onClick={closeMenu}>Unstitched</Link>
-          <Link href="/shop/stitched" className="nav-link" onClick={closeMenu}>Stitched</Link>
+          <Link href="/shop/unstitched-men" className="nav-link" onClick={closeMenu}>Unstitched for men</Link>
+          <Link href="/shop/unstitched-women" className="nav-link" onClick={closeMenu}>Unstitched for women</Link>
           <Link href="/about" className="nav-link" onClick={closeMenu}>About</Link>
           <Link href="/contact" className="btn btn-primary nav-contact" onClick={closeMenu}>Contact Us</Link>
         </nav>

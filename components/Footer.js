@@ -9,14 +9,14 @@ export default function Footer({ settings }) {
             {settings?.siteName || 'ClothVex'}
           </div>
           <p style={{ fontSize: 14, lineHeight: 1.7, color: '#D8C2BA', maxWidth: 360, margin: 0 }}>
-            {settings?.tagline || 'Unstitched & Stitched Fabrics, Delivered.'}
+            {settings?.tagline || 'Unstitched Fabrics, Delivered.'}
           </p>
         </div>
         <div>
           <div style={{ fontWeight: 800, marginBottom: 14, fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-gold-light)' }}>Shop</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14 }}>
-            <Link href="/shop/unstitched" style={{ color: '#D8C2BA' }}>Unstitched Collection</Link>
-            <Link href="/shop/stitched" style={{ color: '#D8C2BA' }}>Stitched Collection</Link>
+            <Link href="/shop/unstitched-men" style={{ color: '#D8C2BA' }}>Unstitched Men Collection</Link>
+            <Link href="/shop/unstitched-women" style={{ color: '#D8C2BA' }}>UnStitched Women Collection</Link>
             <Link href="/about" style={{ color: '#D8C2BA' }}>About Us</Link>
           </div>
         </div>
